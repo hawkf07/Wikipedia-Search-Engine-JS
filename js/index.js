@@ -1,6 +1,7 @@
 let searchInput = document.querySelector("#searchInput");
 const timesIcon = document.querySelector(".fas.fa-times");
 const searchIcon = document.querySelector(".fas.fa-search");
+const form = document.querySelector("#form")
 const wikiH1 = document.querySelector(".wiki-h1");
 const wikiResult = document.querySelector(".wiki-result");
 const wikiArticle = document.querySelector(".wiki-article");
@@ -34,3 +35,8 @@ const wikipediaSearch = async () => {
 };
 timesIcon.addEventListener("click", (e) => (searchInput.value = ""));
 searchIcon.addEventListener("click", wikipediaSearch);
+form.onsubmit = (e) =>{
+	e.preventDefault()	
+	wikipediaSearch()
+	searchInput.value=""
+}
