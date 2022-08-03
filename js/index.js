@@ -6,12 +6,7 @@ const wikiH1 = document.querySelector(".wiki-h1");
 const wikiResult = document.querySelector(".wiki-result");
 const wikiArticle = document.querySelector(".wiki-article");
 let wikiForm = document.querySelector(".search-input");
-const darkMode = document.querySelector(".dark-mode");
 
-darkMode.addEventListener("click", () => {
-  darkMode.classList.toggle("color-change");
-  document.body.classList.toggle("bg-change");
-});
 const wikipediaSearch = async () => {
   let api = await fetch(
     `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srsearch=${searchInput.value}&srlimit=15`
@@ -38,5 +33,4 @@ searchIcon.addEventListener("click", wikipediaSearch);
 form.onsubmit = (e) =>{
 	e.preventDefault()	
 	wikipediaSearch()
-	searchInput.value=""
 }

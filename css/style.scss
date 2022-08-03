@@ -5,8 +5,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 $dark-torqoise: #0fd8e6;
+$links:#3d6aeb;
 $maximum-green-blue: #0cb4c0;
 $white: #ecfdfe;
 $gray: #b1b1b1;
@@ -14,57 +14,39 @@ $star-blue: #007bb8;
 $black-forga: #011213;
 $transpraent-black: #0000007c;
 $transpraent-white: #ffffff4f;
+$bg-color-primary:#151520;
+$font-sans:Inter,sans-serif;
+:root {
+color:$white;
+font-family:$font-sans;
+}
+
+
 body {
-  font-family: "Poppins", sans-serif;
+  background-color:$bg-color-primary;
+  transition: all linear 500ms;
 }
-
-@mixin gradientColorAnimation() {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f5af19,
-    #f12711
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f5af19,
-    #f12711
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  -webkit-text-fill-color: transparent;
-  border-radius: 20px;
-  background-clip: text;
-  -webkit-background-clip: text;
-  &:hover,
-  &:focus {
-    animation: infinite 1s logo;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 .logo {
-  @include gradientColorAnimation();
   text-decoration: none;
-  font-family: "Fira Sans", sans-serif;
   display: block;
   letter-spacing: 2px;
-  color: $black-forga;
-  font-size: 2em;
   margin: 12px 0;
+  text-align:center;
+  font-size:1rem
 }
-body {
-  transition: all linear 500ms;
+a{
+  text-decoration:none;
+  color:$links;
 }
-
 .search-and-logo {
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
-  border-bottom: $gray 1px solid;
   flex-wrap: wrap;
   margin: 12px 0;
   position: relative;
@@ -84,26 +66,24 @@ i {
   width: 100%;
   i.fas.fa-search {
     position: absolute;
-    color: #f12711;
+    color: $links;
     right: 10%;
   }
   i.fas.fa-times {
     position: absolute;
     height: auto;
     right: 7%;
-    color: black;
+    color: gray;
   }
   input {
-    $border: 5px;
     width: 90%;
     margin: auto;
-    padding: 1rem 2em;
+    padding: 1rem 2em;  
+  border:2px solid $links;
     height: 7vh;
-    border: 10px solid;
     border-image-slice: 1;
-    border-width: 4px;
     position: relative;
-    border-image-source: linear-gradient(to right, #f5af19, #f12711);
+    border-radius:5px;
     &:hover,
     &:focus {
       box-shadow: 1px 1px 1px 1px $transpraent-black;
@@ -117,20 +97,6 @@ i {
   margin: 20px 0;
 }
 
-@mixin bottomLine() {
-  &::after {
-    display: block;
-    content: "";
-    width: 100%;
-    border-radius: 20px;
-    height: 0.2321313978123em;
-    background: linear-gradient(
-      to right,
-      #f5af19,
-      #f12711
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-}
 .products-icon {
   display: flex;
   width: 75%;
@@ -141,13 +107,11 @@ i {
   align-items: center;
   i {
     margin: 0 5px;
-    @include gradientColorAnimation();
     font-size: 1.3rem;
     display: block;
   }
   a {
     text-decoration: none;
-    @include bottomLine();
   }
 }
 
@@ -224,14 +188,11 @@ i {
   padding: 2em;
 
   min-height: 80vh;
-  box-shadow: 1px 1px 7px $transpraent-black;
   width: 100%;
   margin: 12px 0;
-  font-family: "Poppins", sans-serif;
   text-align: justify;
   a {
     font-size: 1.5rem;
-    @include gradientColorAnimation();
   }
 
   p {
